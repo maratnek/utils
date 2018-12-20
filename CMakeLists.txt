@@ -4,11 +4,12 @@ set(CMAKE_CXX_STANDARD 14)
 find_package(Boost REQUIRED)
 
 set(UTILS_HDRS
-  log.h
+  #log.h
 )
 
 set(UTILS_SRCS
-  log.cxx
+  #log.cxx
+  first.cxx
 )
 
 add_library(utils ${UTILS_HDRS} ${UTILS_SRCS})
@@ -29,6 +30,7 @@ target_link_libraries(utils)
   #target_link_libraries(utils boost_system)
 #endif()
 
+set(BUILD_TESTING TRUE)
 if(BUILD_TESTING)
   add_subdirectory(Testing/gtest)
 endif()

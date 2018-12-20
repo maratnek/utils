@@ -10,7 +10,35 @@ Abstract:
 //#include "stdafx.h"
 //#include "app_log.h"
 
-#include <boost>
+#include <boost/log/sinks/async_frontend.hpp>
+#include <boost/log/sinks/text_file_backend.hpp>
+#include <boost/log/sinks/text_ostream_backend.hpp>
+#include <boost/log/core.hpp>
+#include <boost/log/expressions/formatter.hpp>
+#include <boost/log/expressions/formatters.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/keywords/severity.hpp>
+#include <boost/log/trivial.hpp>
+
+#include <boost/log/utility/setup/common_attributes.hpp>
+#include <boost/log/detail/config.hpp>
+#include <boost/log/keywords/severity.hpp>
+#include <boost/log/sources/severity_logger.hpp>
+#include <boost/log/sources/record_ostream.hpp>
+#include <boost/log/detail/header.hpp>
+#include <boost/log/detail/config.hpp>
+#include <boost/log/attributes/attribute_name.hpp>
+#include <boost/log/attributes/fallback_policy.hpp>
+#include <boost/log/attributes/value_visitation.hpp>
+#include <boost/log/detail/light_function.hpp>
+#include <boost/log/detail/date_time_fmt_gen_traits_fwd.hpp>
+#include <boost/log/detail/custom_terminal_spec.hpp>
+#include <boost/log/detail/attr_output_terminal.hpp>
+#include <boost/log/expressions/attr_fwd.hpp>
+#include <boost/log/expressions/keyword_fwd.hpp>
+#include <boost/log/utility/formatting_ostream.hpp>
+#include <boost/log/utility/functional/bind.hpp>
+#include <boost/log/detail/header.hpp>
 
 namespace hsssg {
 namespace app {
