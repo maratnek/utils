@@ -20,9 +20,10 @@ add_library(utils ${UTILS_HDRS} ${UTILS_SRCS})
 #endif()
 
 target_include_directories(utils
-  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+  ${Boost_INCLUDE_DIR})
 
-#target_link_libraries(utils)
+target_link_libraries(utils)
 
 #if(UNIX)
   #target_link_libraries(utils boost_system)

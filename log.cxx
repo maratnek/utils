@@ -7,8 +7,10 @@ Abstract:
 
 --*/
 
-#include "stdafx.h"
-#include "app_log.h"
+//#include "stdafx.h"
+//#include "app_log.h"
+
+#include <boost>
 
 namespace hsssg {
 namespace app {
