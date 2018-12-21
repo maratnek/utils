@@ -1,23 +1,31 @@
-#add_executable(UtilsTest utils.cxx)
-
 cmake_minimum_required (VERSION 3.1)
 
-project (registerer)
+project (utils_test)
+
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
+add_definitions(-DBOOST_LOG_DYN_LINK)
+find_package(Boost COMPONENTS log log_setup thread system atomic filesystem exception REQUIRED)
+message(status "** Boost Include: ${Boost_INCLUDE_DIR}")
+message(status "** Boost Libraries: ${Boost_LIBRARY_DIRS}")
+message(status "** Boost Libraries: ${Boost_LIBRARIES}")
+message(status "** Boost LOG Libraries: ${Boost_LOG_LIBRARIES}")
+find_package(Threads)
 
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
-execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+execute_process(COMMAND chcp 1251 && ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
   RESULT_VARIABLE result
 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
-if(result)
-  message(FATAL_ERROR "CMake step for googletest failed: ${result}")
-endif()
-execute_process(COMMAND ${CMAKE_COMMAND} --build .
+#if(result)
+  #message(FATAL_ERROR "CMake step for googletest failed: ${result}")
+#endif()
+execute_process(COMMAND chcp 1251 && ${CMAKE_COMMAND} --build .
   RESULT_VARIABLE result
 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
-if(result)
-  message(FATAL_ERROR "Build step for googletest failed: ${result}")
-endif()
+#if(result)
+  #message(FATAL_ERROR "Build step for googletest failed: ${result}")
+#endif()
 
 # Prevent overriding the parent project's compiler/linker
 # settings on Windows
@@ -39,7 +47,8 @@ endif()
 # Now simply link against gtest or gtest_main as needed. Eg
 
 add_executable(UtilsTest utils.cxx)
-target_link_libraries(UtilsTest utils gtest_main)
+#target_link_libraries(UtilsTest utils gtest_main ${Boost_LIBRARIES})
+target_link_libraries(UtilsTest utils gtest_main Boost::log Boost::log_setup)
 
 ######################################
 # Configure the test to use GoogleTest
