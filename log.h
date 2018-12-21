@@ -16,12 +16,10 @@ Authors:
   Rinat Baygildin (r.baygildin@innopolis.ru)
 
 --*/
-#ifndef HSSSG_APP_LOG_H
-#define HSSSG_APP_LOG_H
+#pragma once
 
 #include <boost/log/common.hpp>
 #include <boost/log/trivial.hpp>
-#include <platforms/defs.h>
 #if defined(I_OS_WINDOWS)
 // function marked as __forceinline not inlined
 #pragma warning(disable: 4714)
@@ -50,6 +48,7 @@ void LogStopAsync();
 /**
  * HSSSG logger global macro
  */
+#define HSSSG_LOG_TRACE   BOOST_LOG_SEV(hsssg::app::slg::get(), boost::log::trivial::severity_level::trace)
 #define HSSSG_LOG_FATAL   BOOST_LOG_SEV(hsssg::app::slg::get(), boost::log::trivial::severity_level::fatal)
 #define HSSSG_LOG_ERROR   BOOST_LOG_SEV(hsssg::app::slg::get(), boost::log::trivial::severity_level::error)
 #define HSSSG_LOG_WARNING BOOST_LOG_SEV(hsssg::app::slg::get(), boost::log::trivial::severity_level::warning)
@@ -58,4 +57,3 @@ void LogStopAsync();
 
 } // namespace hsssg
 
-#endif // HSSSG_APP_LOG_H
