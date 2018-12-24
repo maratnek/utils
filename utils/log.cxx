@@ -8,13 +8,6 @@ Abstract:
 --*/
 
 #include "log.h"
-//
-//#include <boost/log/sinks/async_frontend.hpp>
-//#include <boost/log/sinks/text_file_backend.hpp>
-//#include <boost/log/sinks/text_ostream_backend.hpp>
-//#include <boost/log/expressions/formatters.hpp>
-//#include <boost/log/detail/trivial_keyword.hpp>
-//
 
 //stdafx.h
 // std
