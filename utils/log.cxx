@@ -29,6 +29,11 @@ Abstract:
 #include <thread>
 #include <vector>
 
+#include <boost/log/sinks/async_frontend.hpp>
+#include <boost/log/sinks/text_file_backend.hpp>
+#include <boost/log/sinks/text_ostream_backend.hpp>
+#include <boost/log/expressions/formatters.hpp>
+#include <boost/log/detail/trivial_keyword.hpp>
 
 //boost
 #include <boost/log/attributes.hpp>
@@ -85,7 +90,7 @@ void LogInitializeAsync(const std::string& path) {
   // save sink
   s_sink = sink;
 
-#ifdef _I_DEBUG_
+//#ifdef _I_DEBUG_
   // writing to console in debug
   boost::shared_ptr<sink_async_console_t> sink_console = boost::make_shared<sink_async_console_t>();
 
@@ -104,12 +109,12 @@ void LogInitializeAsync(const std::string& path) {
 
   // save console sink
   s_sink_console = sink_console;
-#else
-  // don't show debug message in not debug mode
-  //s_sink->set_filter(boost::log::expressions::attr<boost::log::trivial::severity_level>("Severity") >
-  //                   boost::log::trivial::trace);
-  s_sink_console = nullptr;
-#endif // _I_DEBUG_
+//#else
+//  // don't show debug message in not debug mode
+//  //s_sink->set_filter(boost::log::expressions::attr<boost::log::trivial::severity_level>("Severity") >
+//  //                   boost::log::trivial::trace);
+//  s_sink_console = nullptr;
+//#endif // _I_DEBUG_
 
   boost::log::add_common_attributes();
 }
