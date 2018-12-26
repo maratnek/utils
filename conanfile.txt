@@ -1,4 +1,6 @@
 [requires]
+#boost/1.59.0@jslee02/stable
+#boost/1.59.0@lasote/stable
 boost/1.69.0@conan/stable
 
 [options]
@@ -6,8 +8,17 @@ boost:shared=True # False
 # Take a look for all available options in conanfile.py
 
 [generators]
+cmake_find_package
+cmake_paths
 cmake
+cmake_multi
+virtualenv
+virtualrunenv
+virtualbuildenv
 
 [imports]
 bin, *.dll -> ./Debug
-lib, *.dylib* -> ./Debug # Copies all dylib files from packages lib folder to my local "bin" folder
+lib, *.dylib -> ./Debug # Copies all dylib files from packages lib folder to my local "bin" folder
+
+#[env]
+#PATH=[$PROFILE_DIR/boost]

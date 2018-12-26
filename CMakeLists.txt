@@ -1,12 +1,25 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.1)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(LogStream)
+#set(CMAKE_CXX_FLAGS_RELEASE "/MT")
+#set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
+set(Boost_DEBUG 1)
 
-#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-#conan_define_targets()
+set(CompilerFlags
+        CMAKE_CXX_FLAGS_DEBUG
+        CMAKE_CXX_FLAGS_RELEASE
+        CMAKE_C_FLAGS_DEBUG
+        CMAKE_C_FLAGS_RELEASE
+        )
+foreach(CompilerFlag ${CompilerFlags})
+  #string(REPLACE "/MDd" "/MD" ${CompilerFlag} "${${CompilerFlag}}")
+  #string(REPLACE "/MTd" "/MD" ${CompilerFlag} "${${CompilerFlag}}")
+#  message("${${CompilerFlag}}")
+endforeach()
+
+project(LogStream)
 
 find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
 
