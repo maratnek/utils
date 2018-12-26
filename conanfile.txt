@@ -10,3 +10,4 @@ cmake
 
 [imports]
 bin, *.dll -> ./Debug
+lib, *.dylib* -> ./Debug # Copies all dylib files from packages lib folder to my local "bin" folder
