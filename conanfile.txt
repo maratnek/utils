@@ -16,9 +16,9 @@ virtualenv
 virtualrunenv
 virtualbuildenv
 
-[imports]
-bin, *.dll -> ./Debug
-lib, *.dylib -> ./Debug # Copies all dylib files from packages lib folder to my local "bin" folder
+#[imports]
+#bin, *.dll -> ./Debug
+#lib, *.dylib -> ./Debug # Copies all dylib files from packages lib folder to my local "bin" folder
 
 #[env]
 #PATH=[$PROFILE_DIR/boost]

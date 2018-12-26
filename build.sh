@@ -1,6 +1,7 @@
 mkdir build
 cd build
-conan install .. --settings arch=x86_64 build_type=Debug
+conan install .. -s build_type=Debug
+conan install .. -s build_type=Release
 
 unamestr=`uname`
 echo "$unamestr"

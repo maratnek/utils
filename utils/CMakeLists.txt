@@ -1,4 +1,4 @@
-#cmake_minimum_required(VERSION 3.1)
+#make_minimum_required(VERSION 3.1)
 
 project(utils)
 
@@ -12,11 +12,13 @@ foreach(CompilerFlag ${CompilerFlags})
   message("${${CompilerFlag}}")
 endforeach()
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo_multi.cmake)
+include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 conan_basic_setup(TARGETS)
 
-#set(Boost_USE_STATIC_LIBS ON)
-set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_STATIC_LIBS ON)
+#set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_NO_SYSTEM_PATHS ON)
 #

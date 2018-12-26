@@ -5,19 +5,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #set(CMAKE_CXX_FLAGS_RELEASE "/MT")
 #set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
-set(Boost_DEBUG 1)
 
-set(CompilerFlags
-        CMAKE_CXX_FLAGS_DEBUG
-        CMAKE_CXX_FLAGS_RELEASE
-        CMAKE_C_FLAGS_DEBUG
-        CMAKE_C_FLAGS_RELEASE
-        )
-foreach(CompilerFlag ${CompilerFlags})
+#set(CompilerFlags
+#        CMAKE_CXX_FLAGS_DEBUG
+#        CMAKE_CXX_FLAGS_RELEASE
+#        CMAKE_C_FLAGS_DEBUG
+#        CMAKE_C_FLAGS_RELEASE
+#        )
+#foreach(CompilerFlag ${CompilerFlags})
   #string(REPLACE "/MDd" "/MD" ${CompilerFlag} "${${CompilerFlag}}")
   #string(REPLACE "/MTd" "/MD" ${CompilerFlag} "${${CompilerFlag}}")
 #  message("${${CompilerFlag}}")
-endforeach()
+#endforeach()
 
 project(LogStream)
 
